@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var on = 0;
+        function cambia(){
+            if (on == 0) {
+            document.body.style.backgroundColor = "red";
+            document.body.style.color =  "white";
+        on = 1; }
+            else {
+                document.body.style.backgroundColor = "white";
+            document.body.style.color =  "black";
+            on = 0;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id = "container">
+   <h1>Site with dark mode</h1> 
+   <hr>
+   <div>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, id, impedit necessitatibus accusamus aliquid reiciendis deserunt alias voluptate officia eius explicabo, possimus exercitationem. Aspernatur illo veniam enim fugit tempore sint?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ratione distinctio necessitatibus magnam vel in voluptas illum explicabo obcaecati quam doloribus ipsa a, eum dolorem numquam sunt autem molestias rerum.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quisquam cumque illo fuga vero voluptas voluptates ipsam minima assumenda, magnam ex facere, sapiente nam earum pariatur placeat exercitationem at amet?
+   </div>
+   <hr>
+   <div>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, id, impedit necessitatibus accusamus aliquid reiciendis deserunt alias voluptate officia eius explicabo, possimus exercitationem. Aspernatur illo veniam enim fugit tempore sint?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ratione distinctio necessitatibus magnam vel in voluptas illum explicabo obcaecati quam doloribus ipsa a, eum dolorem numquam sunt autem molestias rerum.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quisquam cumque illo fuga vero voluptas voluptates ipsam minima assumenda, magnam ex facere, sapiente nam earum pariatur placeat exercitationem at amet?
+   </div>
+   <hr>
+   <button onclick="cambia()">cambia</button>
+</div>
+</body>
+</html>
