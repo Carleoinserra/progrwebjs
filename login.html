@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+   function login(){
+     var pass = document.getElementById("pass").value;
+     var user = document.getElementById("user").value;
+     var pass1 = "123";
+     var user1 = "pippo";
+
+     if (pass == pass1 && user == user1){
+        document.getElementById("result").innerHTML = "login effetuato";
+     }
+     else if (pass != pass1 && user == user1)
+     {
+        document.getElementById("result").innerHTML = "password non corretta";
+     }
+     else if (pass == pass1 && user != user1)
+     {
+        document.getElementById("result").innerHTML = "username non corretto";
+     }
+
+     else if (pass != pass1 && user != user1) {
+      document.getElementById("result").innerHTML = "dati non rinosciuti";
+
+   }}
+
+
+
+    </script>
+</head>
+<body>
+   
+    Inserisci lo username <input type="text" id = "user"> <br>
+    Inserisci la password <input type="text" id = "pass"> <br>
+    <button onclick="login()">login</button>
+    <hr>
+    <div id = "result">
+
+    </div>
+   
+</body>
+</html>
