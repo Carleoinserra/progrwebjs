@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function somma(){
+            
+            // ottenere i dati inseriti dall'utente nei campi input
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+
+            // abbiamo fatto la somma con il parseInt 
+            var somma = parseInt(num1) + parseInt(num2);
+            // l'abbiamo stampate con l'alert
+            document.getElementById("result").innerHTML = somma;
+            
+            
+        }
+        function molt(){
+            
+            // ci siamo ricavati i valori inseriti dall'utente
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            // abbiamo fatto il prodotto dei valori
+            var prodotto = parseInt(num1) * parseInt(num2);
+            // lo abbiamo stampato
+            document.getElementById("result").innerHTML = prodotto;
+            
+            
+        }
+    </script>
+</head>
+<body>
+    scrivi un numero  <input type = "text" id = "num1"><br>
+    scrivi un numero <input type = "text" id = "num2"><br>
+   <button onclick="somma()">Somma</button>
+   <button onclick="molt()">Moltiplica</button>
+   <hr>
+   Il risultato è:
+   <div id = "result">
+     
+   </div>
+
+
+
+</body>
+</html>
