@@ -19,10 +19,18 @@
         }
         function mostra(){
             document.getElementById("par").style.display = "block";
+            document.getElementById("par1").style.display = "none";
+        }
+        function mostra1(){
+            document.getElementById("par").style.display = "none";
+            document.getElementById("par1").style.display = "block";
         }
     </script>
     <style>
         #par {
+            display: none;
+        }
+        #par1  {
             display: none;
         }
     </style>
@@ -31,7 +39,7 @@
     <div id = "container">
    <h1>Site with dark mode</h1> 
    <hr>
-   <div>
+   <div id = "par1">
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, id, impedit necessitatibus accusamus aliquid reiciendis deserunt alias voluptate officia eius explicabo, possimus exercitationem. Aspernatur illo veniam enim fugit tempore sint?
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ratione distinctio necessitatibus magnam vel in voluptas illum explicabo obcaecati quam doloribus ipsa a, eum dolorem numquam sunt autem molestias rerum.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quisquam cumque illo fuga vero voluptas voluptates ipsam minima assumenda, magnam ex facere, sapiente nam earum pariatur placeat exercitationem at amet?
@@ -44,7 +52,8 @@
    </div>
    <hr>
    <button onclick="cambia()">cambia</button>
-   <button onclick="mostra()">mostra</button>
+   <button onclick="mostra()">mostra p</button>
+   <button onclick="mostra1()">mostra p1</button>
 </div>
 </div>
 </body>
