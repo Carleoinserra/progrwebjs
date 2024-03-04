@@ -17,7 +17,15 @@
             on = 0;
             }
         }
+        function mostra(){
+            document.getElementById("par").style.display = "block";
+        }
     </script>
+    <style>
+        #par {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id = "container">
@@ -29,13 +37,15 @@
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quisquam cumque illo fuga vero voluptas voluptates ipsam minima assumenda, magnam ex facere, sapiente nam earum pariatur placeat exercitationem at amet?
    </div>
    <hr>
-   <div>
+   <div id = "par">
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, id, impedit necessitatibus accusamus aliquid reiciendis deserunt alias voluptate officia eius explicabo, possimus exercitationem. Aspernatur illo veniam enim fugit tempore sint?
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ratione distinctio necessitatibus magnam vel in voluptas illum explicabo obcaecati quam doloribus ipsa a, eum dolorem numquam sunt autem molestias rerum.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quisquam cumque illo fuga vero voluptas voluptates ipsam minima assumenda, magnam ex facere, sapiente nam earum pariatur placeat exercitationem at amet?
    </div>
    <hr>
    <button onclick="cambia()">cambia</button>
+   <button onclick="mostra()">mostra</button>
+</div>
 </div>
 </body>
 </html>
