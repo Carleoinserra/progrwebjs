@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selezione Modello Auto</title>
+    <script>
+   function mostra(){
+    var modello = document.getElementById("selectAuto").value;
+    var stato = document.getElementById("selectStato").value;
+    var mod = modello.split(".");
+    var stat = stato.split(".");
+    var prezzo = parseInt(mod[1]) + parseInt(stat[1]);
+    var res = document.getElementById("result");
+    var res1 = "Hai scelto il modello " + mod[0] + " in condizione: " + stat[0] +
+   '<br>' + "Il prezzo della macchina è: "+ prezzo;
+    res.innerHTML= res1;
+
+   }
+
+
+    </script>
+</head>
+<body>
+    <h2>Seleziona il modello dell'auto:</h2>
+    <select id="selectAuto">
+        <option value="volvo.10000">Volvo</option>
+        <option value="bmw.13000">BMW</option>
+        <option value="audi.14000">Audi</option>
+        <option value="mercedes.14000">Mercedes</option>
+    </select>
+    <select id="selectStato">
+        <option value="nuova.10000">nuova</option>
+        <option value="km0.8000">km0</option>
+        <option value="usata.3000">Usata</option>
+        
+    </select>
+
+    <button onclick="mostra()">Mostra Modello Selezionato</button>
+    <hr>
+    <div id = "result"></div>
+</body>
+</html>
