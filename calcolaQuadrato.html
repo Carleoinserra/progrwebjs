@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    img {
+        display: none;
+    }
+   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var lista = document.getElementById("result");
+        var calcolaButton = document.getElementById("calcola");
+        
+        calcolaButton.addEventListener("click", function() {
+            lista.innerHTML = '';
+            var lato = document.getElementById("lato").value;
+            var perimetro = lato * 4;
+            var area = lato * lato;
+            lista.innerHTML += '<li>' + "il perimetro è: " + perimetro + '</li>';
+            lista.innerHTML += '<li>' + "l\'area è: " + area + '</li>';
+        });
+    });
+</script>
+
+</head>
+<body>
+<h1>Calcola l'area e il perimetro del quadrato</h1>
+<input type="text" id = "lato">
+<button id ="calcola">Invia</button>
+<img src="">
+<ul id ="result">
+
+</ul>
+
+
+</body>
+</html>
