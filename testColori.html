@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    var listaColori = ["blu", "rosso","giallo"];
+    function add(){
+        var color = document.getElementById("color").value;
+        listaColori.push(color);
+    }
+    function mostra(){
+        var nodo = document.getElementById("result");
+        var listaHtml = "";
+        for (var i = 0; i < listaColori.length; i++){
+            listaHtml += '<li>' + listaColori[i] + '</li>';
+        }
+        nodo.innerHTML = listaHtml;
+    }
+
+    </script>
+</head>
+<body>
+  <h1>Elenco di colori</h1> 
+ Inserisci un colore <input type="text" id = "color"> <br>
+ <button onclick = "add()">Invia</button>
+ <hr>
+ <button onclick = "mostra()">Mostra</button>
+ <ul id = "result">
+
+ </ul>
+
+</body>
+</html>
