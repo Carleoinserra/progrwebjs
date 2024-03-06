@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+class Car {
+    constructor(name, anni){
+        
+        this.name = name;
+        this.anni = anni;
+        this.stato = "da calcolare";
+    }
+    
+    stampa(){
+        return "Nome macchina:" + this.name + " anni: " + this.anni + " stato "+ this.stato;
+    }
+    
+    calcolaAnni(){
+      var age  = 2024 - this.anni;
+      return age;
+    }
+    
+    calcolaStato(){
+        var age  = 2024 - this.anni;
+        if (age < 3){
+            this.stato = "quasi nuova";
+        }
+       else if (age > 3 && age < 10){
+            this.stato = "buone condizioni";
+        }
+        else {
+            this.stato = "molto usata";
+        }
+    }
+}
+var lista = [];
+function add(){
+   
+var name = document.getElementById("name").value;
+var anni = document.getElementById("anni").value;
+
+var c1 = new Car(name, anni);
+lista.push(c1);
+
+}
+
+function mostra(){
+
+var nodo = document.getElementById("result");
+
+var elements = "";
+for (var i = 0; i < lista.length; i++) {
+    
+    elements+= lista[i].stampa() + '<br>';
+} 
+nodo.innerHTML = elements;
+
+}
+
+    </script>
+</head>
+<body>
+   <h1>Autosalone</h1> 
+   Inserisci il nome della macchina <input type="text" id = "name"><br>
+   Inserisci gli anni della macchina <input type="text" id = "anni"><br>
+   <button onclick="add()">Add</button><hr>
+   <button onclick="mostra()">Mostra</button>
+   <div id = "result"></div>
+
+</body>
+</html>
