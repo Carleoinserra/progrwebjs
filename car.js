@@ -1,30 +1,50 @@
-// classe di oggetto
 class Car {
-    constructor(name, year){
-        this.name = name // valore ottenuto dal parametro;
-        this.year = year;
+    constructor(name, anni){
+        
+        this.name = name;
+        this.anni = anni;
+        this.stato = "da calcolare";
     }
     
     stampa(){
-        return "nome dell'auto: " + this.name + " Anno di immatricolazione: " + this.year;
+        return "Nome macchina:" + this.name + " anni: " + this.anni + " stato "+ this.stato;
     }
     
-    anniUsura(){
-        var anni = 2024 - this.year;
-        return anni;
-        
+    calcolaAnni(){
+      var age  = 2024 - this.anni;
+      return age;
     }
     
+    calcolaStato(){
+        var age  = 2024 - this.anni;
+        if (age < 3){
+            this.stato = "quasi nuova";
+        }
+       else if (age > 3 && age < 10){
+            this.stato = "buone condizioni";
+        }
+        else {
+            this.stato = "molto usata";
+        }
+    }
 }
-// istanze di un oggetto
-var car1 = new Car("Renault", 2007);
-var car2 = new Car("Opel", 2015);
-var car3 = new Car("Ford", 2020);
+var c1 = new Car("mercedes", 2020);
+console.log(c1.stampa());
+c1.calcolaStato();
+console.log(c1.stampa());
+var listaCar = [];
 
-// accedere alle propeità dell'oggetto
-console.log(car2.year);
-console.log(car1.name);
 
-// chiamiamo il metodo stampa su un' instanza
-console.log(car2.stampa());
-console.log("La macchina ha " + car3.anniUsura() + " anni di vita");
+
+do {
+    var name = prompt("inserisci il nome: ");
+    var anni = parseInt(prompt("Inserisci gli anni"));
+    var c2 = new Car(name, anni);
+    listaCar.push(c2);
+    var scelta = prompt("Effettua una scelta e per terminare: ");
+}
+while(scelta != 'e')
+
+for (var i = 0; i < listaCar.length; i++){
+    console.log(listaCar[i].stampa());
+}
