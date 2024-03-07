@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <script>
+        class Dipendente {
+            constructor(nome, cognome, mansione, stipendio) {
+                this.nome = nome;
+                this.cognome = cognome;
+                this.mansione = mansione;
+                this.stipendio = stipendio;
+            }
+            stampa() {
+                return (
+                    "Nome: " +
+                    this.nome + ", " +
+                    "Cognome: " +
+                    this.cognome + ", " +
+                    "Mansione: " +
+                    this.mansione + ", " +
+                    "Stipendio: " +
+                    this.stipendio +
+                    "€"
+                );
+            }
+        }
+ 
+        var listaDip = [];
+ 
+        var dip4 = new Dipendente("Alice", "Ibba", "Dirigente", 5000);
+        var dip2 = new Dipendente("Maria", "Civitillo", "Dev", 4500);
+        var dip3 = new Dipendente("Marco", "Vella", "Impiegato", 4000);
+        listaDip.push(dip2);
+        listaDip.push(dip3);
+        listaDip.push(dip4);
+ 
+        function add() {
+            var nome = document.getElementById("nome").value;
+            var cognome = document.getElementById("cognome").value;
+            var mansione = document.getElementById("mansione").value;
+            var stipendio = parseInt(document.getElementById("stipendio").value);
+            var dip1 = new Dipendente(nome, cognome, mansione, stipendio);
+            listaDip.push(dip1);
+            cercaMan();
+ 
+        }
+ 
+        function mostra() {
+ 
+            var nodo = document.getElementById("result");
+ 
+            var elements = "";
+            for (var i = 0; i < listaDip.length; i++) {
+ 
+                elements += listaDip[i].stampa() + '<br>';
+            }
+            nodo.innerHTML = elements;
+ 
+        }
+ 
+        function cerca() {
+            var nodo = document.getElementById("result1");
+            var result = "";
+            var surname = document.getElementById("surname").value;
+            for (var i = 0; i < listaDip.length; i++) {
+                if (listaDip[i].cognome == surname) {
+                    result += listaDip[i].stampa() + '<br>';
+                }
+            }
+            nodo.innerHTML = result;
+        }
+ 
+        function cercaMansione() {
+ 
+            var select = document.getElementById("selectMansione").value;
+            var nodo = document.getElementById("result3");
+            var elements = "";
+            for (var i = 0; i < listaDip.length; i++) {
+                if (listaDip[i].mansione == select) {
+                    elements += listaDip[i].stampa() + '<br>';
+                }
+            }
+            nodo.innerHTML = elements;
+        }
+ 
+    </script>
+</head>
+ 
+<body>
+    <div>
+        <h1>Lista dei dipendenti</h1>
+ 
+        <label for="nome">Inserisci il nome:</label>
+        <input type="text" id="nome"><br>
+        <label for="cognome">Inserisci il cognome:</label>
+        <input type="text" id="cognome"><br>
+        <label for="mansione">Inserisci la mansione:</label>
+        <input type="text" id="mansione"><br>
+        <label for="stipendio">Inserisci lo stipendio:</label>
+        <input type="text" id="stipendio">
+ 
+        <button onclick="add()">Add</button>
+        <hr>
+        <button onclick="mostra()">Mostra</button>
+        <div id="result"></div>
+ 
+        <hr>
+        Cerca dipendente dal cognome <input type="text" id="surname"><br>
+        <button onclick="cerca()">Cerca</button><br>
+        <div id="result1"></div>
+        <hr>
+ 
+        <select id="selectMansione">
+            <option value="Dirigente">Dirigente</option>
+            <option value="Dev">Dev</option>
+            <option value="Impiegato">Impiegato</option>
+ 
+        </select>
+        <button onclick="cercaMansione()">Cerca stato</button>
+        <div id="result3"></div>
+        <br>
+    </div>
+ 
+    <hr>
+    <div id="result4"></div>
+    <button onclick="cercaMan()">Cerca mansione</button>
+    <hr>
+    <div id = "result5"></div>
+    <div id = "result6"></div>
+    <script>
+
+       
+        function cercaMan() {
+            // Andiamo a rimuovere la select con id sel se questa esiste
+            var sel = document.getElementById("sel");
+            if (sel) {
+                sel.parentNode.removeChild(sel);
+            }
+
+            // creiamo una lista vuota con le mansioni
+            var arrayMansioni = [];
+            
+            for (var i = 0; i < listaDip.length; i++) {
+                if (arrayMansioni.includes(listaDip[i].mansione) == false) {
+                    arrayMansioni.push(listaDip[i].mansione);
+                }
+            }
+ 
+            var select = document.createElement("select");
+            select.id = "sel";
+ 
+ 
+            for (var i = 0; i < arrayMansioni.length; i++) {
+ 
+                var option = document.createElement("option");
+                option.text = arrayMansioni[i];
+                option.value = arrayMansioni[i]
+                select.add(option);
+            };
+            document.getElementById("result4").appendChild(select);
+
+            var btn = document.createElement("button");
+            btn.innerText = "mostra dip";
+            btn.id = "btn";
+            document.getElementById("result5").appendChild(btn);
+            document.getElementById("btn").onclick = function() {mostraM()};
+        }
+
+    function mostraM(){
+    var option = document.getElementById("sel").value;
+    
+    var nodo = document.getElementById("result6");
+    
+ 
+ 
+    var elements = "";
+
+     
+ 
+ 
+   
+    for (var i = 0; i < listaDip.length; i++){
+           if (listaDip[i].mansione == option){
+            
+            
+            elements += listaDip[i].stampa() + '<br>';
+           }
+    }
+    nodo.innerHTML = elements;
+       
+    }
+ 
+    </script>
+ 
+</body>
+ 
+</html>
