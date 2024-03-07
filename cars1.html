@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+class Car {
+    constructor(name, anni){
+        
+        this.name = name;
+        this.anni = anni;
+        this.stato = "da calcolare";
+    }
+    
+    stampa(){
+        return "Nome macchina:" + this.name + " anni: " + this.anni + " stato "+ this.stato;
+    }
+    
+    calcolaAnni(){
+      var age  = 2024 - this.anni;
+      return age;
+    }
+    
+    calcolaStato(){
+        var age  = 2024 - this.anni;
+        if (age < 3){
+            this.stato = "quasi nuova";
+        }
+       else if (age >= 3 && age <= 10){
+            this.stato = "buone condizioni";
+        }
+        else {
+            this.stato = "molto usata";
+        }
+    }
+}
+var lista = [];
+var c1 = new Car("Renault", 2007);
+var c2 = new Car("Ford", 2007);
+var c3 = new Car("Dacia", 2010);
+var c4 = new Car("Opel", 2010);
+lista.push(c1);
+lista.push(c2);
+lista.push(c3);
+lista.push(c4);
+// Oggetti unici
+function add(){
+   
+   var name = document.getElementById("name").value;
+   var anni = document.getElementById("anni").value;
+   
+   var c1 = new Car(name, anni);
+   lista.push(c1);
+}
+
+function calcola(){
+    for (var i = 0; i < lista.length; i++){
+        lista[i].calcolaStato();
+    }
+}
+
+function mostra(){
+
+var nodo = document.getElementById("result");
+
+var elements = "";
+for (var i = 0; i < lista.length; i++) {
+    
+    elements+= lista[i].stampa() + '<br>';
+} 
+nodo.innerHTML = elements;
+
+}
+function cerca(){
+    var nodo = document.getElementById("result1");
+    var result = "";
+    var age = document.getElementById("age").value;
+    for (var i = 0; i < lista.length; i++){
+          if (lista[i].anni == age) {
+              result+= lista[i].stampa() + '<br>';
+          }
+    }
+    nodo.innerHTML = result;
+}
+function cercaStato(){
+    
+    var select = document.getElementById("selectStato").value;
+    var nodo = document.getElementById("result3");
+    var elements = "";
+    for (var i = 0; i < lista.length; i++){
+        if (lista[i].stato == select){
+            elements += lista[i].stampa() + '<br>';
+        }
+    }
+    nodo.innerHTML = elements;
+}
+
+    </script>
+</head>
+<body>
+   <h1>Autosalone</h1> 
+   Inserisci il nome della macchina <input type="text" id = "name"><br>
+   Inserisci gli anni della macchina <input type="text" id = "anni"><br>
+   <button onclick="add()">Add</button><hr>
+   <button onclick="calcola()">Calcola stato</button>
+   <button onclick="mostra()">Mostra</button>
+   <div id = "result"></div>
+   <hr>
+   Cerca macchine dall'anno <input type="text" id = "age"><br>
+   <button onclick="cerca()">Cerca</button><br>
+   <div id = "result1"></div>
+   <hr>
+   <select id="selectStato">
+    <option value="quasi nuova">quasi nuova</option>
+    <option value="buone condizioni">buone condizioni</option>
+    <option value="molto usata">molto usata</option>
+    
+</select>
+<button onclick="cercaStato()">Cerca stato</button>
+<div id = "result3"></div>
+<br>
+<hr>
+<div id = "result4"></div>
+<button onclick="cercaAnni()">Cerca anni</button>
+<script>
+function cercaAnni(){
+    
+// creamo un array vuoto dove andremo a inserire gli anni delle macchine
+// una sola volta
+var ageUnici = [];
+
+// andiamo a inserire nella lista gli anni
+// utilizziamo il metodo includes per verificare se l'elemento è gia presente nella lista
+for (var i =0; i< lista.length; i++){
+    if (ageUnici.includes(lista[i].anni) == false) {
+        ageUnici.push(lista[i].anni);
+    }
+}
+// Creazione della select dinamica
+var select = document.createElement("select");
+select.id = "sel";
+//Aggiunta delle opzioni alla select
+// abbiamo ciclato l'array con gli anni
+for (var i = 0; i < ageUnici.length; i++){
+    //andiamo a creare un option
+    var option = document.createElement("option");
+    // per ogni optiona ndiamo a settare il testo dell'option
+    option.text = ageUnici[i];
+    // per ogni optiona ndiamo a settare il value dell'option
+    option.value = ageUnici[i]
+    // aggiungiamo l'option alla select
+    select.add(option);
+};
+
+// andiamo a appenderre la select come figlio dell'elemtno con id result4
+document.getElementById("result4").appendChild(select);
+}
+
+
+</script>
+
+
+
+
+</body>
+</html>
