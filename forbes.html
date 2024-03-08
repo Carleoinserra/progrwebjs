@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+   class Vip {
+
+    constructor (nome, cognome, lavoro, patrimonio){
+        this.nome = nome;
+        this.cognome = cognome;
+        this.lavoro= lavoro;
+        this.patrimonio = patrimonio;
+    }
+   }
+ function set() {
+    
+
+
+  /* var lista = [];
+   v1 = new Vip ("Massimiliana", "Aleotti", "ereditiera", 7.5);
+   v2 = new Vip ("Maria", "Prada", "moda", 5.6);
+   v3 = new Vip ("Marisa", "Del Vecchio", "ottica", 4.5);
+   v4 = new Vip ("Nicoletta", "Zampillo", "ereditiera", 4.5);
+   v5 = new Vip ("Paola", "Del Vecchio", "ottica", 4.5);
+   lista.push(v1);
+   lista.push(v2);
+   lista.push(v3);
+   lista.push(v4);
+   lista.push(v5);
+   // Salvataggio dell'array nel localStorage
+   localStorage.setItem("TopF", JSON.stringify(lista)); */
+// Recupero dell'array dal localStorage
+var lista = JSON.parse(localStorage.getItem("TopF"));
+
+for (var i = 0; i < lista.length; i++){
+    
+    alert("posizione "+ (i+1) + " " +lista[i].cognome + " "+ lista[i].lavoro )
+}}
+
+    </script>
+</head>
+<body>
+   <h1>Donne più ricche d'italia</h1> 
+   <button onclick="set()">Set</button>
+</body>
+</html>
