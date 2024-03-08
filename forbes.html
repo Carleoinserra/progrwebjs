@@ -33,16 +33,47 @@
    localStorage.setItem("TopF", JSON.stringify(lista)); */
 // Recupero dell'array dal localStorage
 var lista = JSON.parse(localStorage.getItem("TopF"));
-
+alert("ciao");
 for (var i = 0; i < lista.length; i++){
     
     alert("posizione "+ (i+1) + " " +lista[i].cognome + " "+ lista[i].lavoro )
 }}
+
+function change(){
+    // recuperiamo l'array dal data storage
+    var lista = JSON.parse(localStorage.getItem("TopF"));
+    // recuperiamo i dati dagli input
+    var fname = document.getElementById("fname").value;
+    var lname = document.getElementById("lname").value;
+    var sect = document.getElementById("sect").value;
+    var patr = document.getElementById("patr").value;
+    var pos = document.getElementById("pos").value;
+    var pos1 = parseInt(pos)-1;
+    var vip = new Vip(fname, lname, sect, patr);
+     // andiamo a cambiare il vip in posizione
+    for (var i = 0; i < lista.length; i++){
+            if (i == pos1){
+                lista[i] = vip;
+            }
+    }
+    localStorage.setItem("TopF", JSON.stringify(lista));
+
+
+
+
+}
 
     </script>
 </head>
 <body>
    <h1>Donne più ricche d'italia</h1> 
    <button onclick="set()">Set</button>
+   <hr>
+   <input type = "text" id = "fname"><br>
+   <input type = "text" id = "lname"><br>
+   <input type = "text" id = "sect"><br>
+   <input type = "text" id = "patr"><br>
+   <input type = "text" id = "pos"><br>
+   <button onclick="change()">Change</button>
 </body>
 </html>
