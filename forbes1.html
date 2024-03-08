@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+   class Vip {
+
+    constructor (nome, cognome, lavoro, patrimonio){
+        this.nome = nome;
+        this.cognome = cognome;
+        this.lavoro= lavoro;
+        this.patrimonio = patrimonio;
+    }
+   }
+function creaS(){
+    
+   var select = document.getElementById("sel");
+   var lista = JSON.parse(localStorage.getItem("TopF"));
+   var result = document.getElementById("result");
+   
+   for (var i = 0; i < lista.length; i++){
+     
+     var option = document.createElement("option");
+           option.text = [i+1];
+           option.value = [i+1];
+           select.add(option);
+
+   }
+   result.appendChild(select); }
+
+ function set() {
+    
+
+
+  /* var lista = [];
+   v1 = new Vip ("Massimiliana", "Aleotti", "ereditiera", 7.5);
+   v2 = new Vip ("Maria", "Prada", "moda", 5.6);
+   v3 = new Vip ("Marisa", "Del Vecchio", "ottica", 4.5);
+   v4 = new Vip ("Nicoletta", "Zampillo", "ereditiera", 4.5);
+   v5 = new Vip ("Paola", "Del Vecchio", "ottica", 4.5);
+   lista.push(v1);
+   lista.push(v2);
+   lista.push(v3);
+   lista.push(v4);
+   lista.push(v5);
+   // Salvataggio dell'array nel localStorage
+   localStorage.setItem("TopF", JSON.stringify(lista)); */
+// Recupero dell'array dal localStorage
+var lista = JSON.parse(localStorage.getItem("TopF"));
+
+for (var i = 0; i < lista.length; i++){
+    
+    alert("posizione "+ (i+1) + " " +lista[i].cognome + " "+ lista[i].lavoro )
+}}
+
+function change(){
+    // recuperiamo l'array dal data storage
+    var lista = JSON.parse(localStorage.getItem("TopF"));
+    // recuperiamo i dati dagli input
+    var fname = document.getElementById("fname").value;
+    var lname = document.getElementById("lname").value;
+    var sect = document.getElementById("sect").value;
+    var patr = document.getElementById("patr").value;
+    var pos = document.getElementById("pos").value;
+    var pos1 = parseInt(pos)-1;
+    var vip = new Vip(fname, lname, sect, patr);
+     // andiamo a cambiare il vip in posizione
+    for (var i = 0; i < lista.length; i++){
+            if (i == pos1){
+                lista[i] = vip;
+            }
+    }
+    localStorage.setItem("TopF", JSON.stringify(lista));
+
+
+
+
+}
+function change1(){
+   // recuperiamo l'array dal data storage
+   var lista = JSON.parse(localStorage.getItem("TopF"));
+    // recuperiamo i dati dagli input
+    var pos1 = parseInt(document.getElementById("pos1").value);
+    var pos2 = parseInt(document.getElementById("pos2").value);
+    var temp = "";
+    for (var i = 0; i < lista.length; i++){
+        if (i == pos2-1) {
+            temp = lista[i];
+            lista[i] = lista[pos1-1];
+            lista[pos1-1] = temp;
+        }
+    }
+    
+    localStorage.setItem("TopF", JSON.stringify(lista));
+
+}
+
+    </script>
+</head>
+<body onload="creaS()" >
+   <h1>Donne più ricche d'italia</h1> 
+   <button onclick="set()">Set</button>
+   <hr>
+   <input type = "text" id = "fname"><br>
+   <input type = "text" id = "lname"><br>
+   <input type = "text" id = "sect"><br>
+   <input type = "text" id = "patr"><br>
+   <input type = "text" id = "pos"><br>
+   <button onclick="change()">Change</button>
+   <hr>
+  <h6> Scambia in posizione</h6> <br>
+  
+   <button onclick="change1()">Change</button>
+   
+   <select id = "sel"></select>
+   <div id = "result"></div>
+</body>
+</html>
